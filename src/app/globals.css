@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 :root {
   --background: #000000;
   --foreground: #171717;
@@ -11,8 +10,10 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
+  /* Exemplo de variáveis de fonte */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  /* -- */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,3 +29,37 @@ body {
   color: var(--foreground);
 }
 
+/* =========================================
+   Adicionar keyframes + classes de animação
+   ========================================= */
+@layer utilities {
+  @keyframes star-movement-bottom {
+    0% {
+      transform: translate(0%, 0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-100%, 0%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes star-movement-top {
+    0% {
+      transform: translate(0%, 0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(100%, 0%);
+      opacity: 0;
+    }
+  }
+
+  .animate-star-movement-bottom {
+    animation: star-movement-bottom 6s linear infinite alternate;
+  }
+
+  .animate-star-movement-top {
+    animation: star-movement-top 6s linear infinite alternate;
+  }
+}
