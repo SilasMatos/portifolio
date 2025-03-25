@@ -15,25 +15,25 @@ const Navbar: React.FC = () => {
             />
           </div>
         </div>
-        <ul className="flex space-x-6 text-white font-medium">
+        <ul className="flex space-x-6 text-white font-medium text-lg">
           <li>
             <a href="#home" className="hover:text-gray-400">
-              Home
+              Início
             </a>
           </li>
           <li>
             <a href="#about" className="hover:text-gray-400">
-              About
+              Sobre
             </a>
           </li>
           <li>
             <a href="#projects" className="hover:text-gray-400">
-              Projects
+              Projetos
             </a>
           </li>
           <li>
             <a href="#contact" className="hover:text-gray-400">
-              Contact
+              Contato
             </a>
           </li>
         </ul>

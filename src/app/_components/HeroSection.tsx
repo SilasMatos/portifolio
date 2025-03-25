@@ -3,38 +3,55 @@
 import React, { useRef } from 'react'
 import VariableProximity from '../../components/VariableProximity/VariableProximity'
 import StarBorder from '../../components/StarBorder/StarBorder'
+import Button from '../../components/ui/Button'
+import Particles from '../../components/Particles/Particles' // Import the Particles component
+import Orb from '@/components/Orb/Orb'
 
 const HeroSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   return (
-    <section className="hero-section text-white py-20 px-6" ref={containerRef}>
-      <div className="container mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          <VariableProximity
-            label="Desenvolvedor Full Stack"
-            fromFontVariationSettings="'wght' 100"
-            toFontVariationSettings="'wght' 900"
-            containerRef={containerRef}
-            radius={150}
-            falloff="linear"
-            className="inline-block"
-          />
-        </h1>
-        <p className="text-lg md:text-xl leading-relaxed mb-6">
-          <VariableProximity
-            label="Ao longo dos anos, participei de diversos projetos robustos, tanto na parte de back-end quanto front-end, o que me permitiu adquirir uma visão abrangente e aprimorar minhas habilidades técnicas. Sempre fui motivado pela resolução de problemas."
-            fromFontVariationSettings="'wght' 300"
-            toFontVariationSettings="'wght' 700"
-            containerRef={containerRef}
-            radius={100}
-            falloff="gaussian"
-            className="inline-block"
-          />
-        </p>
-        <StarBorder as="a" href="#contact" className="mt-4">
-          Curriculo
-        </StarBorder>
+    <section
+      className="hero-section h-full min-h-screen overflow-hidden flex items-center justify-center relative text-white py-20 px-6"
+      ref={containerRef}
+    >
+      <div className="absolute inset-0 -z-10">
+        <Particles
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleColors={['#ffffff', '#cf4d1a', '#ff8b3e']}
+          moveParticlesOnHover={true}
+          particleHoverFactor={1.5}
+          alphaParticles={true}
+          particleBaseSize={100}
+          sizeRandomness={1}
+          cameraDistance={20}
+          disableRotation={false}
+        />
+      </div>
+
+      <div className="container mx-auto relative z-10 flex items-center ">
+        <div>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Desenvolvedor Full Stack
+          </h1>
+          <p className="text-xl md:text-xl leading-relaxed mb-6">
+            <VariableProximity
+              label="Ao longo dos anos, participei de diversos projetos robustos, tanto na parte de back-end quanto front-end, o que me permitiu adquirir uma visão abrangente e aprimorar minhas habilidades técnicas. Sempre fui motivado pela resolução de problemas."
+              fromFontVariationSettings="'wght' 300"
+              toFontVariationSettings="'wght' 700"
+              containerRef={containerRef.current ? containerRef : undefined}
+              radius={100}
+              falloff="gaussian"
+              className="inline-block"
+            />
+          </p>
+          <Button text="">Curriculo</Button>
+        </div>
+        <div>
+          <Orb />
+        </div>
       </div>
     </section>
   )

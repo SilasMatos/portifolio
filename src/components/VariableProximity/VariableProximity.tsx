@@ -9,10 +9,11 @@ import {
   CSSProperties
 } from 'react'
 import { motion } from 'framer-motion'
-import { Roboto_Flex } from 'next/font/google'
+import { Outfit } from 'next/font/google'
 
-const robotoFlex = Roboto_Flex({
+const outfit = Outfit({
   subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   display: 'swap'
 })
 
@@ -181,10 +182,10 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
         onClick={onClick}
         style={{
           display: 'inline',
-          fontFamily: '"Roboto Flex", sans-serif',
+          fontFamily: '"Outfit", sans-serif',
           ...style
         }}
-        className={`${className} ${robotoFlex.className}`}
+        className={`${className} ${outfit.className}`}
         {...restProps}
       >
         {words.map((word: string, wordIndex: number) => (
