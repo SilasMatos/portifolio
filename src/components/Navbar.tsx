@@ -32,6 +32,11 @@ const Navbar: React.FC = () => {
             </a>
           </li>
           <li>
+            <a href="#skills" className="hover:text-gray-400">
+              Habilidades
+            </a>
+          </li>
+          <li>
             <a href="#contact" className="hover:text-gray-400">
               Contato
             </a>

@@ -12,6 +12,7 @@ interface Project {
   image: string
   link: string
 }
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.div
@@ -23,7 +24,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         ease: 'easeOut'
       }}
       whileHover={{ y: -10, transition: { duration: 0.2 } }}
-      className="bg-foreground rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 h-full flex flex-col"
+      className="bg-[#171717] rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 h-full flex flex-col"
     >
       <div className="relative overflow-hidden">
         <motion.img
@@ -38,20 +39,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       <div className="p-6 flex-1 flex flex-col">
         <motion.h3
-          className="text-xl font-bold mb-2 text-foreground"
+          className="text-xl font-bold mb-2 text-[#ededed]"
           whileHover={{ color: '#F66135' }}
         >
           {project.title}
         </motion.h3>
 
-        <p className="text-foreground/80 mb-4 flex-1">{project.description}</p>
+        <p className="text-[#ededed]/80 mb-4 flex-1">{project.description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag, i) => (
             <motion.span
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="px-3 py-1 bg-background text-sm rounded-full text-foreground/90"
+              className="px-3 py-1 bg-[#0a0a0a] text-sm rounded-full text-[#ededed]/90"
             >
               {tag}
             </motion.span>
@@ -60,7 +61,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
         <motion.a
           href={project.link}
-          className="inline-block px-6 py-2 bg-accent text-foreground font-medium rounded-lg text-center hover:bg-accent/90 transition-colors"
+          className="inline-block px-6 py-2 bg-[#F66135] text-[#ededed] font-medium rounded-lg text-center hover:bg-[#F66135]/90 transition-colors"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -73,7 +74,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 function Projects() {
   const [activeFilter, setActiveFilter] = useState('Todos')
-  const filters = ['Todos', 'React', 'Design', 'Next.js', 'Three.js']
+  const filters = ['Todos', 'React', 'Next.js', 'Tailwind', 'GSAP']
 
   const filteredProjects =
     activeFilter === 'Todos'
@@ -91,7 +92,7 @@ function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 bg-background">
+    <section id="projects" className="py-20 ">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -100,16 +101,16 @@ function Projects() {
           className="text-center mb-16"
         >
           <motion.span
-            className="inline-block px-4 py-1 rounded-full bg-accent/10 text-accent text-sm mb-4"
+            className="inline-block px-4 py-1 rounded-full bg-[#F66135]/10 text-[#F66135] text-sm mb-4"
             whileHover={{ scale: 1.05 }}
           >
             Portfólio
           </motion.span>
-          <h2 className="text-4xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl font-bold text-[#ededed] mb-6">
             Meus Projetos
           </h2>
-          <div className="w-24 h-1 bg-accent mx-auto rounded-full mb-8"></div>
-          <p className="max-w-2xl mx-auto text-foreground/80">
+          <div className="w-24 h-1 bg-[#F66135] mx-auto rounded-full mb-8"></div>
+          <p className="max-w-2xl mx-auto text-[#ededed]/80">
             Explore uma seleção cuidadosa dos meus projetos pessoais que
             destacam minhas habilidades e paixão por criar experiências digitais
             excepcionais.
@@ -128,8 +129,8 @@ function Projects() {
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeFilter === filter
-                  ? 'bg-accent text-foreground'
-                  : 'bg-foreground text-foreground/80 hover:bg-accent/20'
+                  ? 'bg-[#F66135] text-[#ededed]'
+                  : 'bg-[#171717] text-[#ededed]/80 hover:bg-[#F66135]/20'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -161,7 +162,7 @@ function Projects() {
         >
           <motion.a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-foreground font-medium rounded-lg hover:bg-accent/90 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-[#F66135] text-[#ededed] font-medium rounded-lg hover:bg-[#F66135]/90 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

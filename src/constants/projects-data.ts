@@ -4,7 +4,7 @@ export const projectsData = [
     title: 'Design System',
     description:
       'Sistema de design completo com componentes reutilizáveis para aplicações web modernas.',
-    tags: ['React', 'Tailwind', 'Design'],
+    tags: ['React', 'Tailwind',],
     image: '/api/placeholder/600/400',
     link: '#'
   },
@@ -13,7 +13,7 @@ export const projectsData = [
     title: 'E-commerce Platform',
     description:
       'Plataforma de e-commerce com funcionalidades completas de carrinho e pagamento.',
-    tags: ['Next.js', 'Stripe', 'MongoDB'],
+    tags: ['Next.js', 'Nest.js', 'MongoDB'],
     image: '/api/placeholder/600/400',
     link: '#'
   },

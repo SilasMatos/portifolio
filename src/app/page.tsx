@@ -1,12 +1,14 @@
 import React from 'react'
 import HeroSection from './_components/HeroSection'
 import Projects from './_components/Projects'
+import TechnologiesSection from './_components/MyTechnologies'
 
 function Home() {
   return (
-    <main>
+    <main className="max-w-7xl mx-auto px-4 py-8">
       <HeroSection />
       <Projects />
+      <TechnologiesSection />
     </main>
   )
 }
