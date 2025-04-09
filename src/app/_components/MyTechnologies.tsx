@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { technologies } from '@/constants/technologies-data'
+import Image from 'next/image'
 
 function TechnologiesSection() {
   const [activeCategory, setActiveCategory] = useState('Todas')
@@ -172,7 +173,7 @@ function TechnologiesSection() {
                   }
                   transition={{ duration: 0.5 }}
                 >
-                  <img
+                  <Image
                     src={tech.icon}
                     alt={tech.name}
                     className="object-cover w-16 h-16 rounded-full"

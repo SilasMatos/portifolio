@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const experiences = [
   {
@@ -120,7 +121,7 @@ function About() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
+                <Image
                   src="/assets/luka.png"
                   alt="Foto de Perfil"
                   className="w-full h-full object-cover"
