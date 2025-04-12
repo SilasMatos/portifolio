@@ -111,9 +111,10 @@ function Projects() {
           </h2>
           <div className="w-24 h-1 bg-[#F66135] mx-auto rounded-full mb-8"></div>
           <p className="max-w-2xl mx-auto text-[#ededed]/80">
-            Explore uma seleção cuidadosa dos meus projetos pessoais que
-            destacam minhas habilidades e paixão por criar experiências digitais
-            excepcionais.
+            Aqui você encontra uma seleção especial dos meus projetos pessoais —
+            cada um deles reflete não só minhas habilidades técnicas, mas também
+            minha paixão por design, tecnologia e a criação de experiências
+            digitais que realmente fazem a diferença.
           </p>
         </motion.div>
 
@@ -159,30 +160,7 @@ function Projects() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
-        >
-          <motion.a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-[#F66135] text-[#ededed] font-medium rounded-lg hover:bg-[#F66135]/90 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>Vamos trabalhar juntos</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </motion.a>
-        </motion.div>
+        ></motion.div>
       </div>
     </section>
   )
