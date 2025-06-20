@@ -1,11 +1,9 @@
 'use client'
 
 import React, { useRef } from 'react'
-import VariableProximity from '../../components/VariableProximity/VariableProximity'
-import StarBorder from '../../components/StarBorder/StarBorder'
+
 import Button from '../../components/ui/Button'
-import Particles from '../../components/Particles/Particles' // Import the Particles component
-import Orb from '@/components/Orb/Orb'
+import Particles from '../../components/Particles/Particles'
 import hero_image from '@/assets/hero-image.png'
 import Image from 'next/image'
 
@@ -39,15 +37,10 @@ const HeroSection: React.FC = () => {
             Desenvolvedor Full Stack
           </h1>
           <p className="text-lg md:text-xl leading-relaxed mb-6">
-            <VariableProximity
-              label="Ao longo dos anos, participei de diversos projetos robustos, tanto na parte de back-end quanto front-end, o que me permitiu adquirir uma visão abrangente e aprimorar minhas habilidades técnicas. Sempre fui motivado pela resolução de problemas."
-              fromFontVariationSettings="'wght' 300"
-              toFontVariationSettings="'wght' 700"
-              containerRef={containerRef.current ? containerRef : undefined}
-              radius={100}
-              falloff="gaussian"
-              className="inline-block"
-            />
+            Ao longo dos anos, participei de diversos projetos robustos, tanto
+            na parte de back-end quanto front-end, o que me permitiu adquirir
+            uma visão abrangente e aprimorar minhas habilidades técnicas. Sempre
+            fui motivado pela resolução de problemas.
           </p>
           <Button text="">Curriculo</Button>
         </div>
