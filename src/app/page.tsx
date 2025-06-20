@@ -3,6 +3,7 @@ import HeroSection from './_components/HeroSection'
 import Projects from './_components/Projects'
 import TechnologiesSection from './_components/MyTechnologies'
 import About from './_components/About'
+import Contacts from './_components/Contacts'
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <About />
       <Projects />
       <TechnologiesSection />
+      <Contacts />
     </main>
   )
 }

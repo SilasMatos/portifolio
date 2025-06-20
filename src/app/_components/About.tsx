@@ -125,6 +125,8 @@ function About() {
                   src="/assets/luka.png"
                   alt="Foto de Perfil"
                   className="w-full h-full object-cover"
+                  width={256}
+                  height={256}
                 />
               </motion.div>
 
