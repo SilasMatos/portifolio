@@ -121,13 +121,11 @@ function About() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <Image
+                {/* <Image
                   src="/assets/luka.png"
                   alt="Foto de Perfil"
                   className="w-full h-full object-cover"
-                  width={256}
-                  height={256}
-                />
+                /> */}
               </motion.div>
 
               <motion.div

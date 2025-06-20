@@ -255,7 +255,6 @@ function TechnologiesSection() {
           ))}
         </motion.div>
 
-        {/* Animação de progresso */}
         <motion.div
           className="mt-20 text-center"
           initial={{ opacity: 0 }}

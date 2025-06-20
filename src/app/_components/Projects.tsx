@@ -111,9 +111,10 @@ function Projects() {
           </h2>
           <div className="w-24 h-1 bg-[#F66135] mx-auto rounded-full mb-8"></div>
           <p className="max-w-2xl mx-auto text-[#ededed]/80">
-            Explore uma seleção cuidadosa dos meus projetos pessoais que
-            destacam minhas habilidades e paixão por criar experiências digitais
-            excepcionais.
+            Aqui você encontra uma seleção especial dos meus projetos pessoais —
+            cada um deles reflete não só minhas habilidades técnicas, mas também
+            minha paixão por design, tecnologia e a criação de experiências
+            digitais que realmente fazem a diferença.
           </p>
         </motion.div>
 
