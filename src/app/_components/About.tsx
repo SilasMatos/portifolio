@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-
+import Image from 'next/image'
 const experiences = [
   {
     id: 1,
@@ -120,11 +120,13 @@ function About() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* <Image
-                  src="/assets/luka.png"
+                <Image
+                  src="/assets/silasedit.jpg"
+                  width={256}
+                  height={256}
                   alt="Foto de Perfil"
                   className="w-full h-full object-cover"
-                /> */}
+                />
               </motion.div>
 
               <motion.div

@@ -12,7 +12,7 @@ function TechnologiesSection() {
   const particles = useMemo(() => {
     return [...Array(20)].map((_, i) => ({
       id: i,
-      top: (i * 37) % 100, // Use deterministic values
+      top: (i * 37) % 100,
       left: (i * 73) % 100,
       width: 2 + (i % 6),
       height: 2 + ((i * 3) % 6),
@@ -68,7 +68,6 @@ function TechnologiesSection() {
       id="technologies"
       className="py-24 bg-[#0a0a0a] relative overflow-hidden"
     >
-      {' '}
       {/* Partículas de fundo */}
       <div className="absolute inset-0 opacity-20">
         {particles.map(particle => (
@@ -94,7 +93,8 @@ function TechnologiesSection() {
           />
         ))}
       </div>
-      <div className="container mx-auto px-4 relative ">
+
+      <div className="container mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -232,24 +232,6 @@ function TechnologiesSection() {
                 >
                   {tech.level}
                 </motion.span>
-
-                <motion.p
-                  className="absolute top-full left-0 right-0 mt-1 px-3 py-2 bg-[#171717] rounded-lg text-xs text-[#ededed]/80 z-20"
-                  initial={{ opacity: 0, y: -10, maxHeight: 0 }}
-                  animate={
-                    hoveredTech === tech.name
-                      ? { opacity: 1, y: 0, maxHeight: 100, display: 'block' }
-                      : {
-                          opacity: 0,
-                          y: -10,
-                          maxHeight: 0,
-                          transitionEnd: { display: 'none' }
-                        }
-                  }
-                  transition={{ duration: 0.2 }}
-                >
-                  {tech.description}
-                </motion.p>
               </div>
             </motion.div>
           ))}

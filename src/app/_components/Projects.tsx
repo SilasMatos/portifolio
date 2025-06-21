@@ -61,6 +61,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
         <motion.a
           href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block px-6 py-2 bg-[#F66135] text-[#ededed] font-medium rounded-lg text-center hover:bg-[#F66135]/90 transition-colors"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -74,7 +76,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 function Projects() {
   const [activeFilter, setActiveFilter] = useState('Todos')
-  const filters = ['Todos', 'React', 'Next.js', 'Tailwind', 'GSAP']
+  const filters = [
+    'Todos',
+    'React',
+    'Next.js',
+    'Tailwind',
+    'Node js',
+    'TypeScript'
+  ]
 
   const filteredProjects =
     activeFilter === 'Todos'

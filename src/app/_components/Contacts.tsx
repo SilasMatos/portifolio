@@ -1,7 +1,14 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Globe, Mail, ExternalLink } from 'lucide-react'
+import {
+  Github,
+  Linkedin,
+  Globe,
+  Mail,
+  ExternalLink,
+  Instagram
+} from 'lucide-react'
 
 function Contacts() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -31,7 +38,7 @@ function Contacts() {
       url: 'https://github.com/silasmatos',
       color: 'hover:bg-gray-700',
       description: 'Meus projetos e códigos',
-      stats: '50+ repositórios'
+      stats: ''
     },
     {
       name: 'LinkedIn',
@@ -39,15 +46,15 @@ function Contacts() {
       url: 'https://www.linkedin.com/in/silas-matos/',
       color: 'hover:bg-blue-600',
       description: 'Carreira profissional',
-      stats: '500+ conexões'
+      stats: ''
     },
     {
-      name: 'Portfólio',
-      icon: <Globe className="w-8 h-8" />,
-      url: 'https://seuportfolio.com',
+      name: 'Instagram',
+      icon: <Instagram className="w-8 h-8" />,
+      url: 'https://www.instagram.com/silasmatos1',
       color: 'hover:bg-accent',
-      description: 'Trabalhos completos',
-      stats: '20+ projetos'
+      description: 'Acompanhe meu dia a dia',
+      stats: ''
     }
   ]
 
@@ -203,7 +210,7 @@ function Contacts() {
                 Entre em contato direto comigo através do email
               </p>
               <a
-                href="mailto:contato@seuportfolio.com"
+                href="mailto:silasmatosym@gmail.com"
                 className="inline-flex items-center space-x-2 bg-accent hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 group-hover:scale-105"
               >
                 <Mail className="w-5 h-5" />
