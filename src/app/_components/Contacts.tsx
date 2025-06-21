@@ -1,22 +1,14 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import {
-  Github,
-  Linkedin,
-  Twitter,
-  Globe,
-  Instagram,
-  Mail,
-  ExternalLink
-} from 'lucide-react'
+import { Github, Linkedin, Globe, Mail, ExternalLink } from 'lucide-react'
 
 function Contacts() {
-  const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    const handleMouseMove = (e: { clientX: any; clientY: any }) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
 
@@ -72,7 +64,6 @@ function Contacts() {
       id="contato"
       className="py-20 relative overflow-hidden min-h-screen flex items-center"
     >
-      {/* Background animado com partículas */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <div
@@ -109,36 +100,33 @@ function Contacts() {
       )}
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
-        {/* Header da seção */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <motion.span
+            className="inline-block px-4 py-1 rounded-full bg-[#F66135]/10 text-[#F66135] text-sm mb-4"
+            whileHover={{ scale: 1.05 }}
           >
-            <motion.span
-              className="inline-block px-4 py-1 rounded-full bg-[#F66135]/10 text-[#F66135] text-sm mb-4"
-              whileHover={{ scale: 1.05 }}
-            >
-              Entre em contato
-            </motion.span>
-            <h2 className="text-4xl font-bold text-[#ededed] mb-6">Contatos</h2>
+            Entre em contato
+          </motion.span>
+          <h2 className="text-4xl font-bold text-[#ededed] mb-6">Contatos</h2>
 
-            <motion.div
-              className="w-10 h-1 bg-[#F66135] mx-auto rounded-full mb-8"
-              initial="hidden"
-              animate="visible"
-              variants={lineVariants}
-            />
+          <motion.div
+            className="w-10 h-1 bg-[#F66135] mx-auto rounded-full mb-8"
+            initial="hidden"
+            animate="visible"
+            variants={lineVariants}
+          />
 
-            <p className="max-w-2xl mx-auto text-[#ededed]/80">
-              Aqui você encontra meus principais canais de contato e redes
-              sociais. Fique à vontade para me chamar, conectar ou acompanhar
-              meu trabalho!
-            </p>
-          </motion.div>
-        </div>
+          <p className="max-w-2xl mx-auto text-[#ededed]/80">
+            Aqui você encontra meus principais canais de contato e redes
+            sociais. Fique à vontade para me chamar, conectar ou acompanhar meu
+            trabalho!
+          </p>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {socialLinks.map((social, index) => (
@@ -204,7 +192,6 @@ function Contacts() {
           ))}
         </div>
 
-        {/* Call to action final */}
         <div className="text-center">
           <div className="inline-block p-8 bg-foreground border border-gray-800 rounded-2xl relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-accent/10 transform -skew-x-12 translate-x-full group-hover:translate-x-[-150%] transition-transform duration-1000" />
