@@ -1,14 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import {
-  Github,
-  Linkedin,
-  Globe,
-  Mail,
-  ExternalLink,
-  Instagram
-} from 'lucide-react'
+import { Github, Linkedin, Mail, ExternalLink, Instagram } from 'lucide-react'
 
 function Contacts() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
