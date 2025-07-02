@@ -61,7 +61,7 @@ function Contacts() {
 
   return (
     <section
-      id="contato"
+      id="contact"
       className="py-20 relative overflow-hidden min-h-screen flex items-center"
     >
       <div className="absolute inset-0">

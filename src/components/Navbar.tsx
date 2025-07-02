@@ -2,10 +2,9 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import RotatingText from './RotatingText/RotatingText'
 
 const Navbar: React.FC = () => {
-  const [, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +24,9 @@ const Navbar: React.FC = () => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300`}
+      className={`fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300 ${
+        scrolled ? 'bg-black/20 backdrop-blur-md ' : 'bg-transparent'
+      }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -37,26 +38,11 @@ const Navbar: React.FC = () => {
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
         >
-          {/* Modern Name Design */}
           <motion.div className="relative">
             <h1 className="text-xl font-bold">SILAS MATOS</h1>
           </motion.div>
-
-          {/* Rotating Text Badge */}
-          <motion.div
-            className="bg-[#F66135]/10 border border-[#F66135]/30 px-3 py-1 rounded-full backdrop-blur-sm"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          >
-            <RotatingText
-              texts={['Desenvolvedor', 'Full Stack']}
-              rotationInterval={3000}
-              mainClassName="text-sm font-semibold text-[#F66135]"
-            />
-          </motion.div>
         </motion.div>
 
-        {/* Navigation Links */}
         <ul className="hidden md:flex space-x-8">
           {navItems.map((item, index) => (
             <motion.li
@@ -71,12 +57,10 @@ const Navbar: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                {/* Text */}
                 <span className="relative z-10 group-hover:text-[#F66135] transition-colors duration-300">
                   {item.label}
                 </span>
 
-                {/* Underline Animation */}
                 <motion.div
                   className="absolute bottom-0 left-0 h-0.5 bg-[#F66135] origin-left"
                   initial={{ scaleX: 0 }}
