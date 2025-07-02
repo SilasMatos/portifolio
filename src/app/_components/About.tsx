@@ -89,12 +89,12 @@ function About() {
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#F66135]/5 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[600px]">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={slideVariants}
-            className="flex flex-col items-center lg:items-start"
+            className="flex flex-col items-center lg:items-start justify-center order-2 lg:order-1"
           >
             <motion.span
               className="inline-block px-4 py-1 rounded-full bg-[#F66135]/10 text-[#F66135] text-sm mb-4"
@@ -103,18 +103,18 @@ function About() {
               Conheça-me
             </motion.span>
 
-            <h2 className="text-4xl font-bold text-[#ededed] mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#ededed] mb-6 text-center lg:text-left">
               Sobre Mim
             </h2>
 
             <motion.div
-              className="w-24 h-1 bg-[#F66135] rounded-full mb-8"
+              className="w-24 h-1 bg-[#F66135] rounded-full mb-8 lg:self-start"
               initial={{ width: 0 }}
               animate={{ width: 96 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             />
 
-            <div className="relative w-64 h-64 mb-8 lg:mb-0">
+            <div className="relative w-64 h-64 lg:w-72 lg:h-72 mb-8 lg:mb-0 flex-shrink-0">
               <motion.div
                 className="w-full h-full bg-[#171717] rounded-2xl overflow-hidden relative z-10"
                 whileHover={{ scale: 1.02 }}
@@ -122,8 +122,8 @@ function About() {
               >
                 <Image
                   src="/assets/silasedit.jpg"
-                  width={256}
-                  height={256}
+                  width={288}
+                  height={288}
                   alt="Foto de Perfil"
                   className="w-full h-full object-cover"
                 />
@@ -155,85 +155,29 @@ function About() {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="flex flex-col mt-10"
+            className="flex flex-col justify-center order-1 lg:order-2 lg:pl-8"
           >
             <motion.div
               variants={itemVariants}
-              className="prose prose-invert max-w-none mb-8"
+              className="prose prose-invert max-w-none"
             >
-              <h3 className="text-2xl font-bold text-[#ededed] mb-4">
+              <h3 className="text-2xl lg:text-3xl font-bold text-[#ededed] mb-6 text-center lg:text-left">
                 Olá, sou <span className="text-[#F66135]">Silas Matos</span>
               </h3>
-              <p className="text-[#ededed]/80 mb-4">
-                Desenvolvedor frontend apaixonado por criar experiências
-                digitais intuitivas e impactantes. Com mais de 5 anos de
-                experiência no desenvolvimento de interfaces modernas e
-                responsivas, busco sempre combinar design elegante com código
-                limpo e eficiente.
-              </p>
-              <p className="text-[#ededed]/80 mb-4">
-                Especializado em React, Next.js e TypeScript, tenho trabalhado
-                com frameworks CSS como Tailwind e bibliotecas de animação como
-                Framer Motion para criar websites e aplicações web de alta
-                qualidade.
-              </p>
-              <p className="text-[#ededed]/80">
-                Além do desenvolvimento, tenho interesse em design de
-                interfaces, acessibilidade web e otimização de performance
-                frontend.
+              <p className="text-[#ededed]/80 text-base lg:text-lg leading-relaxed text-justify lg:text-left">
+                Sou um profissional apaixonado por tecnologia, com 2 anos de
+                experiência prática como Desenvolvedor Full Stack, com ênfase em
+                desenvolvimento Front-End, utilizando principalmente React e
+                tecnologias modernas que potencializam a criação de interfaces
+                dinâmicas e escaláveis. Minha jornada na área começou com um
+                curso técnico em Desenvolvimento de Sistemas, o que me
+                proporcionou uma base sólida e abriu as portas para minha
+                primeira oportunidade profissional. Desde então, tenho evoluído
+                constantemente em ambientes ágeis, onde participei de todas as
+                etapas do ciclo de vida das aplicações web – desde o
+                planejamento até a entrega.
               </p>
             </motion.div>
-
-            {/* <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-2 gap-6 mb-8"
-            >
-              <div>
-                <h4 className="text-[#F66135] text-sm mb-1">Nome</h4>
-                <p className="text-[#ededed] font-medium">Seu Nome Completo</p>
-              </div>
-              <div>
-                <h4 className="text-[#F66135] text-sm mb-1">Email</h4>
-                <p className="text-[#ededed] font-medium">
-                  seu.email@exemplo.com
-                </p>
-              </div>
-              <div>
-                <h4 className="text-[#F66135] text-sm mb-1">Localização</h4>
-                <p className="text-[#ededed] font-medium">São Paulo, Brasil</p>
-              </div>
-              <div>
-                <h4 className="text-[#F66135] text-sm mb-1">Disponibilidade</h4>
-                <p className="text-[#ededed] font-medium">
-                  Disponível para Projetos
-                </p>
-              </div>
-            </motion.div> */}
-
-            {/* <motion.div variants={itemVariants}>
-              <motion.a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#F66135] text-[#ededed] font-medium rounded-lg hover:bg-[#F66135]/90 transition-colors"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>Entre em Contato</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </motion.a>
-            </motion.div> */}
           </motion.div>
         </div>
 
