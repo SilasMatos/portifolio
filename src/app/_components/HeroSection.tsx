@@ -147,7 +147,7 @@ const HeroSection: React.FC = () => {
               </motion.a>
 
               <motion.a
-                href="/Curriculo.pdf"
+                href="/CurriculoAtt.pdf"
                 download="Curriculo_Silas_Matos.pdf"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#F66135] text-[#F66135] font-semibold rounded-lg hover:bg-[#F66135] hover:text-white transition-all duration-300"
