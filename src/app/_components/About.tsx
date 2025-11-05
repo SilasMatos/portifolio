@@ -121,7 +121,7 @@ function About() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/assets/silasedit.jpg"
+                  src="/foto-corte.jpg"
                   width={288}
                   height={288}
                   alt="Foto de Perfil"

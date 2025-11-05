@@ -2,16 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { projectsData } from '@/constants/projects-data'
-
-interface Project {
-  id: number
-  title: string
-  description: string
-  tags: string[]
-  image: string
-  link: string
-}
+import { projectsData, type Project } from '@/constants/projects-data'
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
@@ -35,6 +26,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           transition={{ duration: 0.3 }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+
+        {/* Status Badge */}
+        {project.status === 'development' && (
+          <div className="absolute top-3 right-3">
+            <span className="px-2 py-1 bg-yellow-500/90 text-black text-xs font-medium rounded-full">
+              Em Desenvolvimento
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="p-6 flex-1 flex flex-col">
@@ -59,16 +59,28 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           ))}
         </div>
 
-        <motion.a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-6 py-2 bg-[#F66135] text-[#ededed] font-medium rounded-lg text-center hover:bg-[#F66135]/90 transition-colors"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Ver projeto
-        </motion.a>
+        {project.status === 'completed' ? (
+          <motion.a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-2 bg-[#F66135] text-[#ededed] font-medium rounded-lg text-center hover:bg-[#F66135]/90 transition-colors"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Ver projeto
+          </motion.a>
+        ) : (
+          <motion.div
+            className="inline-block px-6 py-2 bg-gray-600 text-[#ededed] font-medium rounded-lg text-center cursor-not-allowed opacity-75"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+              Em desenvolvimento
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.div>
   )
@@ -78,6 +90,8 @@ function Projects() {
   const [activeFilter, setActiveFilter] = useState('Todos')
   const filters = [
     'Todos',
+    'Concluídos',
+    'Em Desenvolvimento',
     'React',
     'Next.js',
     'Tailwind',
@@ -85,10 +99,18 @@ function Projects() {
     'TypeScript'
   ]
 
-  const filteredProjects =
-    activeFilter === 'Todos'
-      ? projectsData
-      : projectsData.filter(project => project.tags.includes(activeFilter))
+  const filteredProjects = (() => {
+    if (activeFilter === 'Todos') {
+      return projectsData
+    }
+    if (activeFilter === 'Concluídos') {
+      return projectsData.filter(project => project.status === 'completed')
+    }
+    if (activeFilter === 'Em Desenvolvimento') {
+      return projectsData.filter(project => project.status === 'development')
+    }
+    return projectsData.filter(project => project.tags.includes(activeFilter))
+  })()
 
   const containerVariants = {
     hidden: { opacity: 0 },
