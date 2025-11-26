@@ -93,5 +93,12 @@ export const technologies = [
     category: 'Backend',
     level: 'Intermediário',
     description: 'Linguagem de consulta para APIs.'
-  }
+  },
+  {
+    name: 'TanStack',
+    icon: '/assets/icons/tanstack.png',
+    category: 'Frontend',
+    level: 'Avançado',
+    description: 'Libraria para gerenciamento de estado e dados e rotas em aplicações React.'
+  },
 ]

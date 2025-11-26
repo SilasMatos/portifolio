@@ -46,5 +46,24 @@ export const projectsData: Project[] = [
     link: '#',
     status: 'development'
   },
+  {
+    id: 5,
+    title: 'Better Auth App',
+    description: 'Projeto de autenticação utilizando Elysia, Bun e React com TanStack Router.',
+    tags: ['Elysia', 'TypeScript', 'Bun', 'TanStack Router', 'React', 'Drizzle ORM'],
+    image: '/assets/projects/monli.jpeg',
+    link: 'https://github.com/SilasMatos/better-auth-elysia',
+    status: 'completed'
+  },
+  {
+    id: 6,
+      title: 'Webhook Service',
+    description: 'Projeto de geração de webhooks utilizando Fastify e React.',
+    tags: ['Fastify', 'TypeScript', 'pnpm', 'Docker', 'React', 'Drizzle ORM', 'PostgreSQL'],
+    image: '/assets/projects/monli.jpeg',
+    link: 'https://github.com/SilasMatos/node-react-webhooks',
+    status: 'completed'
+  },
+
 
 ]
