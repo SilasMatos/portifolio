@@ -96,9 +96,16 @@ export const technologies = [
   },
   {
     name: 'TanStack',
-    icon: '/assets/icons/tanstack.png',
+  icon: '/assets/icons/tanstack.png',
     category: 'Frontend',
     level: 'Avançado',
     description: 'Libraria para gerenciamento de estado e dados e rotas em aplicações React.'
+  },
+  {
+    name: 'Git hub actions',
+    icon: '/assets/icons/github.png',
+    category: 'DevOps',
+    level: 'Intermediário',
+    description: '  Plataforma de integração contínua e entrega contínua (CI/CD) do GitHub.'
   },
 ]

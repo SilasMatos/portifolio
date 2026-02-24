@@ -1,10 +1,11 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,24 +86,58 @@ const Navbar: React.FC = () => {
           className="md:hidden w-8 h-8 flex flex-col justify-center items-center space-y-1"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setMobileOpen(prev => !prev)}
+          aria-label="Toggle menu"
         >
           <motion.div
-            className="w-6 h-0.5 bg-[#ededed]"
-            animate={{ rotate: 0 }}
+            className="w-6 h-0.5 bg-[#ededed] origin-center"
+            animate={{ rotate: mobileOpen ? 45 : 0, y: mobileOpen ? 6 : 0 }}
             transition={{ duration: 0.3 }}
           />
           <motion.div
             className="w-6 h-0.5 bg-[#ededed]"
-            animate={{ opacity: 1 }}
+            animate={{ opacity: mobileOpen ? 0 : 1 }}
             transition={{ duration: 0.3 }}
           />
           <motion.div
-            className="w-6 h-0.5 bg-[#ededed]"
-            animate={{ rotate: 0 }}
+            className="w-6 h-0.5 bg-[#ededed] origin-center"
+            animate={{ rotate: mobileOpen ? -45 : 0, y: mobileOpen ? -6 : 0 }}
             transition={{ duration: 0.3 }}
           />
         </motion.button>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="md:hidden bg-black/80 backdrop-blur-md"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ul className="flex flex-col items-center py-6 space-y-6">
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={item.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.07 }}
+                >
+                  <a
+                    href={item.href}
+                    className="text-[#ededed]/80 font-medium text-xl hover:text-[#F66135] transition-colors duration-300"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Custom CSS for gradient animation */}
       <style jsx>{`

@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => {
               className="inline-block px-4 py-2 rounded-full bg-[#F66135]/10 text-[#F66135] text-sm font-medium"
               whileHover={{ scale: 1.05 }}
             >
-              👋 Bem-vindo ao meu portfólio
+              Bem-vindo ao meu portfólio
             </motion.span>
 
             <div className="space-y-4">
@@ -177,19 +177,19 @@ const HeroSection: React.FC = () => {
             >
               <div className="text-center">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#F66135]">
-                  2+
+                  4+
                 </h3>
                 <p className="text-[#ededed]/70 text-sm">Anos de Experiência</p>
               </div>
               <div className="text-center">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#F66135]">
-                  15+
+                  25+
                 </h3>
                 <p className="text-[#ededed]/70 text-sm">Projetos Concluídos</p>
               </div>
               <div className="text-center">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#F66135]">
-                  10+
+                  15+
                 </h3>
                 <p className="text-[#ededed]/70 text-sm">Tecnologias</p>
               </div>

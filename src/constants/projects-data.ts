@@ -51,7 +51,7 @@ export const projectsData: Project[] = [
     title: 'Better Auth App',
     description: 'Projeto de autenticação utilizando Elysia, Bun e React com TanStack Router.',
     tags: ['Elysia', 'TypeScript', 'Bun', 'TanStack Router', 'React', 'Drizzle ORM'],
-    image: '/assets/projects/monli.jpeg',
+    image: '/assets/projects/betterauth.png',
     link: 'https://github.com/SilasMatos/better-auth-elysia',
     status: 'completed'
   },
@@ -64,6 +64,27 @@ export const projectsData: Project[] = [
     link: 'https://github.com/SilasMatos/node-react-webhooks',
     status: 'completed'
   },
+  {
+    id: 7,
+title: 'Planeat',
+    description: 'Aplicativo de planejamento de refeições com integração de API de receitas.',
+    tags: ['React', 'TypeScript', 'TanStack', 'Zod', 'Drizzle ORM', 'Elysia', 'Bun'],
+    image: '/assets/projects/planeat.png',
+  link: 'https://github.com/SilasMatos/planeat',
+    status: 'development'
+
+    
+  },
+  {
+    id: 8,
+    title: 'Nba stats scraper',
+    description: 'Projeto de coleta e analise de dados de estatísticas da NBA utilizando Python e Selenium.',
+    tags: [`Python`, 'Selenium'],
+    image: '/assets/projects/nba.png',
+    link: 'https://github.com/SilasMatos/nba-stats-scraper'
+    ,status: 'completed'
+  }
+
 
 
 ]

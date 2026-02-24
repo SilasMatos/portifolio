@@ -6,29 +6,46 @@ import Image from 'next/image'
 const experiences = [
   {
     id: 1,
-    role: 'Desenvolvedor Frontend Senior',
-    company: 'Tel centro de contatos ',
-    period: 'Jan 2023 - Presente',
+    role: 'Desenvolvedor Full Stack Especialista',
+    company: 'Tel Centro de Contatos',
+    period: '2024 - Presente',
     description:
-      'Desenvolvimento de aplicações web modernas utilizando React, Next.js e TypeScript. Implementação de UIs responsivas e acessíveis com foco em performance e experiência do usuário.',
+      'Atuo como referência técnica da equipe, liderando decisões arquiteturais e garantindo a adoção de boas práticas e padrões de codificação. Supervisiono o ciclo completo de desenvolvimento, desde a análise de requisitos até a implantação em produção. Foco em escalabilidade, performance e alinhamento estratégico das soluções técnicas com os objetivos do negócio. Também lidero revisões de código e mentoria de desenvolvedores.',
     technologies: [
       'React',
       'Next.js',
       'TypeScript',
-      'Tailwind CSS',
-      'Nest.js',
+      'NestJS',
       'Fastify',
-      'PostgreSQL'
+      'PostgreSQL',
+      'Tailwind CSS',
+      'Docker'
     ]
   },
-
   {
     id: 2,
-    role: 'Desenvolvedor Frontend Pleno',
-    company: 'Tel centro de contatos',
-    period: '2023 - Presente',
+    role: 'Desenvolvedor Full Stack Sênior',
+    company: 'Tel Centro de Contatos',
+    period: '2023 - 2024',
     description:
-      'Criação de interfaces interativas e responsivas com foco em usabilidade. Otimização de performance front-end e implementação de animações fluidas.',
+      'Desenvolvimento e manutenção de aplicações web atuando nas camadas front-end e back-end. Participação ativa em planejamento técnico, revisões de código e entrega de funcionalidades escaláveis. Construção de interfaces responsivas e acessíveis utilizando React, trabalhando em colaboração com designers e equipes de backend em ambiente ágil.',
+    technologies: [
+      'React',
+      'JavaScript',
+      'TypeScript',
+      'Next.js',
+      'Node.js',
+      'PostgreSQL',
+      'SCSS'
+    ]
+  },
+  {
+    id: 3,
+    role: 'Desenvolvedor Full Stack Pleno',
+    company: 'Tel Centro de Contatos',
+    period: '2022 - 2023',
+    description:
+      'Criação de interfaces modernas e interativas com foco em usabilidade e experiência do usuário. Implementação de animações fluidas, otimização de performance front-end e aplicação de princípios de código limpo e componentização reutilizável.',
     technologies: ['React', 'JavaScript', 'SCSS', 'Framer Motion']
   }
 ]
@@ -165,7 +182,7 @@ function About() {
                 Olá, sou <span className="text-[#F66135]">Silas Matos</span>
               </h3>
               <p className="text-[#ededed]/80 text-base lg:text-lg leading-relaxed text-justify lg:text-left">
-                Sou um profissional apaixonado por tecnologia, com 2 anos de
+                Sou um profissional apaixonado por tecnologia, com 4 anos de
                 experiência prática como Desenvolvedor Full Stack, com ênfase em
                 desenvolvimento Front-End, utilizando principalmente React e
                 tecnologias modernas que potencializam a criação de interfaces
@@ -181,85 +198,101 @@ function About() {
           </motion.div>
         </div>
 
-        <div className="mt-24">
-          <div className="flex justify-center mb-10">
-            <div className="inline-flex bg-[#171717] p-1 rounded-lg">
-              <motion.button
-                className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
-                  activeTab === 'experience'
-                    ? 'bg-[#F66135] text-[#ededed]'
-                    : 'text-[#ededed]/70 hover:text-[#ededed]'
-                }`}
-                onClick={() => setActiveTab('experience')}
-                whileHover={{ scale: activeTab !== 'experience' ? 1.05 : 1 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Experiência Profissional
-              </motion.button>
-              <motion.button
-                className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
-                  activeTab === 'education'
-                    ? 'bg-[#F66135] text-[#ededed]'
-                    : 'text-[#ededed]/70 hover:text-[#ededed]'
-                }`}
-                onClick={() => setActiveTab('education')}
-                whileHover={{ scale: activeTab !== 'education' ? 1.05 : 1 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Formação Acadêmica
-              </motion.button>
+        <div className="mt-28">
+          {/* Tab Switcher */}
+          <div className="flex justify-center mb-14">
+            <div className="relative flex bg-[#111111] border border-[#ffffff0d] p-1 rounded-2xl gap-1 shadow-lg">
+              {['experience', 'education'].map(tab => (
+                <motion.button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`relative px-8 py-3 rounded-xl text-sm font-semibold transition-colors duration-300 z-10 ${
+                    activeTab === tab
+                      ? 'text-[#ededed]'
+                      : 'text-[#ededed]/50 hover:text-[#ededed]/80'
+                  }`}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  {activeTab === tab && (
+                    <motion.div
+                      layoutId="tab-indicator"
+                      className="absolute inset-0 bg-[#F66135] rounded-xl shadow-[0_0_20px_#F6613540]"
+                      transition={{
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 30
+                      }}
+                    />
+                  )}
+                  <span className="relative z-10">
+                    {tab === 'experience'
+                      ? 'Experiência Profissional'
+                      : 'Formação Acadêmica'}
+                  </span>
+                </motion.button>
+              ))}
             </div>
           </div>
 
+          {/* Experience Tab */}
           <motion.div
-            className={`${activeTab === 'experience' ? 'block' : 'hidden'}`}
-            initial="hidden"
-            animate={activeTab === 'experience' ? 'visible' : 'hidden'}
-            variants={containerVariants}
+            key="experience"
+            className={activeTab === 'experience' ? 'block' : 'hidden'}
+            initial={{ opacity: 0, y: 20 }}
+            animate={
+              activeTab === 'experience'
+                ? { opacity: 1, y: 0 }
+                : { opacity: 0, y: 20 }
+            }
+            transition={{ duration: 0.4 }}
           >
-            <div className="relative">
-              <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-[#171717]"></div>
+            <div className="relative max-w-4xl mx-auto">
+              {/* Timeline line */}
+              <div className="absolute left-6 md:left-1/2 top-0 h-full w-px bg-gradient-to-b from-[#F66135]/60 via-[#F66135]/20 to-transparent md:-translate-x-1/2" />
 
               {experiences.map((exp, index) => (
                 <motion.div
                   key={exp.id}
-                  variants={itemVariants}
-                  className={`mb-12 flex flex-col md:flex-row ${
-                    index % 2 === 0
-                      ? 'md:flex-row-reverse md:text-right'
-                      : 'md:text-left'
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 60 : -60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`mb-10 flex items-start gap-6 md:gap-0 ${
+                    index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
                   }`}
                 >
-                  {/* Conteúdo */}
+                  {/* Card */}
                   <div
-                    className={`md:w-1/2 ${
-                      index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'
-                    }`}
+                    className={`flex-1 pl-14 md:pl-0 ${index % 2 === 0 ? 'md:pr-14' : 'md:pl-14'}`}
                   >
                     <motion.div
-                      className="bg-[#171717] p-6 rounded-xl relative z-10"
-                      whileHover={{ y: -5 }}
+                      className="group relative bg-[#111111] border border-[#ffffff0d] p-6 rounded-2xl overflow-hidden"
+                      whileHover={{ y: -4, borderColor: '#F6613530' }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="mb-2">
-                        <span className="px-3 py-1 text-xs rounded-full bg-[#F66135]/10 text-[#F66135]">
-                          {exp.period}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold text-[#ededed] mb-1">
+                      {/* Glow on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#F66135]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl" />
+
+                      {/* Period badge */}
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full bg-[#F66135]/10 text-[#F66135] border border-[#F66135]/20 mb-4">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#F66135] animate-pulse" />
+                        {exp.period}
+                      </span>
+
+                      <h3 className="text-lg font-bold text-[#ededed] mb-1 text-left">
                         {exp.role}
                       </h3>
-                      <h4 className="text-lg text-[#F66135] mb-3">
+                      <h4 className="text-sm font-semibold text-[#F66135] mb-3 text-left">
                         {exp.company}
                       </h4>
-                      <p className="text-[#ededed]/80 mb-4">
+                      <p className="text-[#ededed]/70 text-sm leading-relaxed mb-4 text-left">
                         {exp.description}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-2 py-1 text-xs rounded-full bg-[#0a0a0a] text-[#ededed]/80"
+                            className="px-2.5 py-1 text-xs rounded-lg bg-[#0a0a0a] text-[#ededed]/60 border border-[#ffffff08] hover:border-[#F66135]/30 hover:text-[#ededed]/90 transition-colors duration-200"
                           >
                             {tech}
                           </span>
@@ -268,75 +301,99 @@ function About() {
                     </motion.div>
                   </div>
 
-                  <div className="md:w-1/2 flex items-center justify-center relative">
+                  {/* Timeline dot — desktop center, mobile left */}
+                  <div className="absolute left-6 md:static md:flex md:items-start md:justify-center md:w-0 mt-6 md:mt-7 md:relative">
                     <motion.div
-                      className="w-6 h-6 rounded-full bg-[#F66135] z-20 absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center"
+                      className="w-5 h-5 rounded-full bg-[#F66135] border-4 border-[#0a0a0a] shadow-[0_0_12px_#F6613570] z-10 absolute left-0 top-0 md:static"
                       initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: index * 0.2 + 0.5, duration: 0.3 }}
-                    >
-                      <div className="w-3 h-3 rounded-full bg-[#ededed]"></div>
-                    </motion.div>
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        delay: index * 0.1 + 0.3,
+                        type: 'spring',
+                        stiffness: 300
+                      }}
+                    />
                   </div>
+
+                  {/* Empty half for alternating layout on desktop */}
+                  <div className="hidden md:block flex-1" />
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
+          {/* Education Tab */}
           <motion.div
-            className={`${activeTab === 'education' ? 'block' : 'hidden'}`}
-            initial="hidden"
-            animate={activeTab === 'education' ? 'visible' : 'hidden'}
-            variants={containerVariants}
+            key="education"
+            className={activeTab === 'education' ? 'block' : 'hidden'}
+            initial={{ opacity: 0, y: 20 }}
+            animate={
+              activeTab === 'education'
+                ? { opacity: 1, y: 0 }
+                : { opacity: 0, y: 20 }
+            }
+            transition={{ duration: 0.4 }}
           >
-            <div className="relative">
-              <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-[#171717]"></div>
+            <div className="relative max-w-4xl mx-auto">
+              {/* Timeline line */}
+              <div className="absolute left-6 md:left-1/2 top-0 h-full w-px bg-gradient-to-b from-[#F66135]/60 via-[#F66135]/20 to-transparent md:-translate-x-1/2" />
 
               {education.map((edu, index) => (
                 <motion.div
                   key={edu.id}
-                  variants={itemVariants}
-                  className={`mb-12 flex flex-col md:flex-row ${
-                    index % 2 === 0
-                      ? 'md:flex-row-reverse md:text-right'
-                      : 'md:text-left'
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 60 : -60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`mb-10 flex items-start gap-6 md:gap-0 ${
+                    index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
                   }`}
                 >
+                  {/* Card */}
                   <div
-                    className={`md:w-1/2 ${
-                      index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'
-                    }`}
+                    className={`flex-1 pl-14 md:pl-0 ${index % 2 === 0 ? 'md:pr-14' : 'md:pl-14'}`}
                   >
                     <motion.div
-                      className="bg-[#171717] p-6 rounded-xl relative z-10"
-                      whileHover={{ y: -5 }}
+                      className="group relative bg-[#111111] border border-[#ffffff0d] p-6 rounded-2xl overflow-hidden"
+                      whileHover={{ y: -4, borderColor: '#F6613530' }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="mb-2">
-                        <span className="px-3 py-1 text-xs rounded-full bg-[#F66135]/10 text-[#F66135]">
-                          {edu.period}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold text-[#ededed] mb-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#F66135]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl" />
+
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full bg-[#F66135]/10 text-[#F66135] border border-[#F66135]/20 mb-4">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#F66135]" />
+                        {edu.period}
+                      </span>
+
+                      <h3 className="text-lg font-bold text-[#ededed] mb-1 text-left">
                         {edu.degree}
                       </h3>
-                      <h4 className="text-lg text-[#F66135] mb-3">
+                      <h4 className="text-sm font-semibold text-[#F66135] mb-3 text-left">
                         {edu.institution}
                       </h4>
-                      <p className="text-[#ededed]/80">{edu.description}</p>
+                      <p className="text-[#ededed]/70 text-sm leading-relaxed text-left">
+                        {edu.description}
+                      </p>
                     </motion.div>
                   </div>
 
-                  <div className="md:w-1/2 flex items-center justify-center relative">
+                  {/* Timeline dot */}
+                  <div className="absolute left-6 md:static md:flex md:items-start md:justify-center md:w-0 mt-6 md:mt-7 md:relative">
                     <motion.div
-                      className="w-6 h-6 rounded-full bg-[#F66135] z-20 absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center"
+                      className="w-5 h-5 rounded-full bg-[#F66135] border-4 border-[#0a0a0a] shadow-[0_0_12px_#F6613570] z-10 absolute left-0 top-0 md:static"
                       initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: index * 0.2 + 0.5, duration: 0.3 }}
-                    >
-                      <div className="w-3 h-3 rounded-full bg-[#ededed]"></div>
-                    </motion.div>
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        delay: index * 0.1 + 0.3,
+                        type: 'spring',
+                        stiffness: 300
+                      }}
+                    />
                   </div>
+
+                  <div className="hidden md:block flex-1" />
                 </motion.div>
               ))}
             </div>

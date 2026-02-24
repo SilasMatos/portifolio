@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Silas Matos
 
-## Getting Started
+Portfólio pessoal desenvolvido com **Next.js**, showcasing minha trajetória como Desenvolvedor Full Stack com ênfase em Front-End.
 
-First, run the development server:
+## Sobre o Projeto
+
+Este portfólio apresenta:
+
+- **Hero Section** — apresentação animada com texto rotativo
+- **Sobre Mim** — bio, foto de perfil e timeline interativa de experiências e formação acadêmica
+- **Projetos** — galeria com os principais projetos desenvolvidos
+- **Tecnologias** — stack técnico com ícones e descrições
+- **Contato** — links e formas de entrar em contato
+
+## Tecnologias Utilizadas
+
+- [Next.js 15](https://nextjs.org/) — framework React com App Router
+- [TypeScript](https://www.typescriptlang.org/) — tipagem estática
+- [Tailwind CSS](https://tailwindcss.com/) — estilização utilitária
+- [Framer Motion](https://www.framer.com/motion/) — animações e transições
+- [React](https://react.dev/) — biblioteca de UI
+
+## Como Rodar Localmente
 
 ```bash
+# Clone o repositório
+git clone https://github.com/SilasMatos/portifolio.git
+cd portifolio
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── page.tsx            # Página principal
+│   ├── layout.tsx          # Layout raiz
+│   └── _components/        # Seções da página
+│       ├── HeroSection.tsx
+│       ├── About.tsx
+│       ├── Projects.tsx
+│       ├── MyTechnologies.tsx
+│       └── Contacts.tsx
+├── components/             # Componentes reutilizáveis
+│   ├── Navbar.tsx
+│   ├── Particles/
+│   ├── RotatingText/
+│   └── StarBorder/
+└── constants/              # Dados estáticos
+    ├── projects-data.ts
+    └── technologies-data.ts
+```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+Projeto hospedado na [Vercel](https://vercel.com/).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolvido por **Silas Matos** © 2026
