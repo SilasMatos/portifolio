@@ -191,7 +191,7 @@ function Contacts() {
             </div>
           ))}
         </div>
-
+{/* 
         <div className="text-center">
           <div className="inline-block p-8 bg-foreground border border-gray-800 rounded-2xl relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-accent/10 transform -skew-x-12 translate-x-full group-hover:translate-x-[-150%] transition-transform duration-1000" />
@@ -211,7 +211,7 @@ function Contacts() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )
