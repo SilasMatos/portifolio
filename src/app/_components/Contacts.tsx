@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ExternalLink, Instagram } from 'lucide-react'
+import { Github, Linkedin, ExternalLink, Instagram } from 'lucide-react'
 
 function Contacts() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -191,7 +191,7 @@ function Contacts() {
             </div>
           ))}
         </div>
-{/* 
+        {/* 
         <div className="text-center">
           <div className="inline-block p-8 bg-foreground border border-gray-800 rounded-2xl relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-accent/10 transform -skew-x-12 translate-x-full group-hover:translate-x-[-150%] transition-transform duration-1000" />
