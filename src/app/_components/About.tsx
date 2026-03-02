@@ -6,47 +6,62 @@ import Image from 'next/image'
 const experiences = [
   {
     id: 1,
-    role: 'Desenvolvedor Full Stack Especialista',
-    company: 'Tel Centro de Contatos',
-    period: '2024 - Presente',
-    description:
-      'Atuo como referência técnica da equipe, liderando decisões arquiteturais e garantindo a adoção de boas práticas e padrões de codificação. Supervisiono o ciclo completo de desenvolvimento, desde a análise de requisitos até a implantação em produção. Foco em escalabilidade, performance e alinhamento estratégico das soluções técnicas com os objetivos do negócio. Também lidero revisões de código e mentoria de desenvolvedores.',
+    role: 'Sênior Frontend Developer',
+    company: 'Tel Contact Center',
+    period: '08/2024 – Atual',
+    highlights: [
+      'Desenvolvimento de sistema completo voltado para recrutamento e contratação com autenticação Google e formulários personalizados, integrando RH, DP e Financeiro. Stack: React, NestJS, PostgreSQL, Drizzle ORM, TanStack Query, Zustand, TanStack Router, ShadCN UI.',
+      'Criação de plataforma para gerenciamento e visualização de dashboards Power BI via iframe com controle de acesso e regras de negócio. Stack: React, Vite, TypeScript, React Query, Zustand.',
+      'Sistema interno de formulários corporativos para RH com coleta estruturada de dados e APIs Fastify, digitalizando processos internos.'
+    ],
     technologies: [
       'React',
-      'Next.js',
-      'TypeScript',
       'NestJS',
-      'Fastify',
       'PostgreSQL',
-      'Tailwind CSS',
-      'Docker'
+      'Drizzle ORM',
+      'TanStack Query',
+      'Zustand',
+      'TanStack Router',
+      'ShadCN UI',
+      'Vite',
+      'TypeScript',
+      'Fastify'
     ]
   },
   {
     id: 2,
-    role: 'Desenvolvedor Full Stack Sênior',
-    company: 'Tel Centro de Contatos',
-    period: '2023 - 2024',
-    description:
-      'Desenvolvimento e manutenção de aplicações web atuando nas camadas front-end e back-end. Participação ativa em planejamento técnico, revisões de código e entrega de funcionalidades escaláveis. Construção de interfaces responsivas e acessíveis utilizando React, trabalhando em colaboração com designers e equipes de backend em ambiente ágil.',
-    technologies: [
-      'React',
-      'JavaScript',
-      'TypeScript',
-      'Next.js',
-      'Node.js',
-      'PostgreSQL',
-      'SCSS'
-    ]
+    role: 'Frontend Developer Pleno',
+    company: 'Tel Contact Center',
+    period: '08/2023 – 09/2024',
+    highlights: [
+      'Sistema de loja interna para resgate automatizado de brindes com React, Tailwind CSS e backend PHP.',
+      'Aplicação web para acompanhamento de indicadores operacionais em tempo real utilizando React, Tailwind e GraphQL.',
+      'Sistema de gerenciamento de chamados internos com interfaces responsivas em JavaScript integradas a backend PHP.'
+    ],
+    technologies: ['React', 'Tailwind CSS', 'GraphQL', 'JavaScript', 'PHP']
   },
   {
     id: 3,
-    role: 'Desenvolvedor Full Stack Pleno',
-    company: 'Tel Centro de Contatos',
-    period: '2022 - 2023',
-    description:
-      'Criação de interfaces modernas e interativas com foco em usabilidade e experiência do usuário. Implementação de animações fluidas, otimização de performance front-end e aplicação de princípios de código limpo e componentização reutilizável.',
-    technologies: ['React', 'JavaScript', 'SCSS', 'Framer Motion']
+    role: 'Desenvolvedor Full Stack',
+    company: 'Freelancer',
+    period: '01/2022 – Atual',
+    highlights: [
+      'Sistema de planejamento alimentar. Stack: React, Elysia, Bun, Shadcn UI, TanStack Query, TanStack Router, Drizzle ORM, Postgres e Jest.',
+      'Landing page comercial. Stack: React, Next.js.',
+      'Sistema de gerenciamento de finanças pessoais. Stack: React, Fastify, Shadcn UI, TanStack Query, TanStack Router, Drizzle ORM, Postgres e Jest.'
+    ],
+    technologies: [
+      'React',
+      'Next.js',
+      'Fastify',
+      'Shadcn UI',
+      'TanStack Query',
+      'TanStack Router',
+      'Drizzle ORM',
+      'PostgreSQL',
+      'Jest',
+      'Bun'
+    ]
   }
 ]
 
@@ -107,38 +122,21 @@ function About() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[600px]">
+          {/* Image column */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={slideVariants}
-            className="flex flex-col items-center lg:items-start justify-center order-2 lg:order-1"
+            className="flex items-center justify-center order-2 lg:order-1"
           >
-            <motion.span
-              className="inline-block px-4 py-1 rounded-full bg-[#F66135]/10 text-[#F66135] text-sm mb-4"
-              whileHover={{ scale: 1.05 }}
-            >
-              Conheça-me
-            </motion.span>
-
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#ededed] mb-6 text-center lg:text-left">
-              Sobre Mim
-            </h2>
-
-            <motion.div
-              className="w-24 h-1 bg-[#F66135] rounded-full mb-8 lg:self-start"
-              initial={{ width: 0 }}
-              animate={{ width: 96 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            />
-
-            <div className="relative w-64 h-64 lg:w-72 lg:h-72 mb-8 lg:mb-0 flex-shrink-0">
+            <div className="relative w-64 h-64 lg:w-72 lg:h-72 flex-shrink-0">
               <motion.div
                 className="w-full h-full bg-[#171717] rounded-2xl overflow-hidden relative z-10"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/foto-corte.jpg"
+                  src="/foto-silas.png"
                   width={288}
                   height={288}
                   alt="Foto de Perfil"
@@ -168,17 +166,36 @@ function About() {
             </div>
           </motion.div>
 
+          {/* Text column */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="flex flex-col justify-center order-1 lg:order-2 lg:pl-8"
+            className="flex flex-col justify-center order-1 lg:order-2"
           >
+            <motion.span
+              className="inline-block px-4 py-1 rounded-full bg-[#F66135]/10 text-[#F66135] text-sm mb-4 self-center lg:self-start"
+              whileHover={{ scale: 1.05 }}
+            >
+              Conheça-me
+            </motion.span>
+
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#ededed] mb-4 text-center lg:text-left">
+              Sobre Mim
+            </h2>
+
+            <motion.div
+              className="w-24 h-1 bg-[#F66135] rounded-full mb-6 self-center lg:self-start"
+              initial={{ width: 0 }}
+              animate={{ width: 96 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            />
+
             <motion.div
               variants={itemVariants}
               className="prose prose-invert max-w-none"
             >
-              <h3 className="text-2xl lg:text-3xl font-bold text-[#ededed] mb-6 text-center lg:text-left">
+              <h3 className="text-2xl lg:text-3xl font-bold text-[#ededed] mb-4 text-center lg:text-left">
                 Olá, sou <span className="text-[#F66135]">Silas Matos</span>
               </h3>
               <p className="text-[#ededed]/80 text-base lg:text-lg leading-relaxed text-justify lg:text-left">
@@ -285,9 +302,17 @@ function About() {
                       <h4 className="text-sm font-semibold text-[#F66135] mb-3 text-left">
                         {exp.company}
                       </h4>
-                      <p className="text-[#ededed]/70 text-sm leading-relaxed mb-4 text-left">
-                        {exp.description}
-                      </p>
+                      <ul className="space-y-2 mb-4">
+                        {exp.highlights.map((item, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-[#ededed]/70 text-sm leading-relaxed text-left"
+                          >
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#F66135] flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
                       <div className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech, i) => (
                           <span
